@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.mugi;
+
+message  Student {
+  int32 student_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string gender = 4;
+  int32 course_id = 5;
+}
+
+message Course{
+  int32 course_id = 1;
+  string name = 2;
+  int32 student_id = 4;
+}
+
+service StudentCourseService{
+  //  unary synchronous
+  //  client will send one request and server will respond with one response.
+  rpc getStudent(Student) returns (Student) {}
+
+  //    client streaming -asynchronous
+  //    client will send one request and server will send stream of response to the client.
+
+  //  server streaming -asynchronous
+  //  client will send stream of request and server will respond with one response.
+
+  //  bi-directional streaming -asynchronous
+  //  client will send stream of request and server will respond with stream of response.
+
+}
