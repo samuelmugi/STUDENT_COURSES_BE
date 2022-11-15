@@ -8,6 +8,7 @@
   <modules>
     <module>protobuf</module>
     <module>student-grpc-server</module>
+    <module>student-grpc-client</module>
   </modules>
 
   <packaging>pom</packaging>
