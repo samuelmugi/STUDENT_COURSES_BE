@@ -1,0 +1,37 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,info
+server:
+  port: 8022
+grpc:
+  client:
+    mugi-author-server-service:
+      address: static://localhost:9000
+      negotiationType: plaintext
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: root
+    url: jdbc:postgresql://localhost:5432/mugigraphql
+    username: postgres
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+    path: /api/mugigraphiql
+    schema:
+      printer:
+        enabled: true
+    websocket:
+      path: /websocket/mugigraphql
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  sql:
+    init:
+      mode: always
